@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>セキュアプログラミング</title>
+    <link rel="stylesheet" type="text/css" href="top.css">
+</head>
+<body>
+    <div class="container">
+        <h1>セキュアプログラミング</h1>
+        
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="リンクを検索..." id="searchInput">
+        </div>
+        
+        <div class="links-grid">
+            <!-- Try3 -->
+            <div class="link-card" data-keywords="try3 inputuser">
+                <a href="try3/inputuser.html">
+                    <span class="icon">🔲</span>
+                    <span class="icon">try3</span>
+                    Try3 脆弱性と入力チェック
+                    <span class="path-display">try3/inputuser.html</span>
+                </a>
+            </div>
+            <!-- Try2 -->
+            <div class="link-card" data-keywords="try2 testnum">
+                <a href="try2/testnum.html">
+                    <span class="icon">🔲</span>
+                    <span class="icon">try2</span>
+                    Try2 脆弱性と入力チェック
+                    <span class="path-display">try2/testnum.html</span>
+                </a>
+            </div>
+            <!-- Try1 -->
+            <div class="link-card" data-keywords="try1 login">
+                <a href="try1/login.html">
+                    <span class="icon">✅</span>
+                    <span class="icon">try1</span>
+                    
+                    Try1 GETをPOST化
+                    <span class="path-display">try1/login.html</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2025 ninjack brother
+    </footer>
+    
+    <script>
+        // 検索機能
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchText = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.link-card');
+            
+            cards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords').toLowerCase();
+                const linkText = card.querySelector('a').textContent.toLowerCase();
+                
+                if (keywords.includes(searchText) || linkText.includes(searchText)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
